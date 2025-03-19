@@ -1,0 +1,253 @@
+{
+    "nose": {
+        "usuario_creador": "Maria",
+        "fecha_creacion": "2025-03-18T10:12:46.093264",
+        "ruta": ".cowfs/archivos/nose",
+        "versiones": []
+    },
+    "alo": {
+        "usuario_creador": "Maria",
+        "fecha_creacion": "2025-03-18T10:12:56.372509",
+        "ruta": ".cowfs/archivos/alo",
+        "versiones": []
+    },
+    "buenas": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-18T10:15:16.141521",
+        "ruta": ".cowfs/archivos/buenas",
+        "versiones": []
+    },
+    "aja": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-18T10:20:53.402730",
+        "ruta": ".cowfs/archivos/aja",
+        "versiones": []
+    },
+    "pachis": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-18T10:39:09.197022",
+        "ruta": ".cowfs/archivos/pachis",
+        "versiones": []
+    },
+    "pau": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-18T10:40:39.770672",
+        "ruta": ".cowfs/archivos/pau",
+        "versiones": []
+    },
+    "machis": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T10:45:41.692457",
+        "ruta": ".cowfs/archivos/machis",
+        "versiones": []
+    },
+    "oli": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T10:45:51.483754",
+        "ruta": ".cowfs/archivos/oli",
+        "versiones": []
+    },
+    "archivo1.txt": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:20:42.429810",
+        "ruta": ".cowfs/archivos/archivo1.txt",
+        "versiones": [
+            {
+                "numero": 1,
+                "usuario": "male",
+                "fecha": "2025-03-18T11:20:49.297209",
+                "ruta": ".cowfs/versiones/archivo1.txt_v1.txt"
+            },
+            {
+                "numero": 2,
+                "usuario": "male",
+                "fecha": "2025-03-18T11:22:08.644607",
+                "ruta": ".cowfs/versiones/archivo1.txt_v2.txt"
+            }
+        ]
+    },
+    "nmoddf": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:37:05.296575",
+        "ruta": ".cowfs/archivos/nmoddf",
+        "versiones": []
+    },
+    "no": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:52:25.859135",
+        "ruta": ".cowfs/archivos/no",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "nos": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:52:29.184158",
+        "ruta": ".cowfs/archivos/nos",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "nosf": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:52:31.281062",
+        "ruta": ".cowfs/archivos/nosf",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "nosfl": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:52:34.465939",
+        "ruta": ".cowfs/archivos/nosfl",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "m": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:57:59.645720",
+        "ruta": ".cowfs/archivos/m",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "ma": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:58:01.519496",
+        "ruta": ".cowfs/archivos/ma",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "mal": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:58:03.531492",
+        "ruta": ".cowfs/archivos/mal",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "malo": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T11:58:05.905753",
+        "ruta": ".cowfs/archivos/malo",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "q": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:00:47.673896",
+        "ruta": ".cowfs/archivos/q",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "qu": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:00:57.220069",
+        "ruta": ".cowfs/archivos/qu",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "que": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:00:59.528050",
+        "ruta": ".cowfs/archivos/que",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "ques": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:01:01.371594",
+        "ruta": ".cowfs/archivos/ques",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "p": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:02:48.003619",
+        "ruta": ".cowfs/archivos/p",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "pa": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:02:49.804036",
+        "ruta": ".cowfs/archivos/pa",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "pachi": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:03:51.377761",
+        "ruta": ".cowfs/archivos/pachi",
+        "versiones": {
+            "v1": {
+                "id": "v1",
+                "usuario": "male",
+                "fecha": "2025-03-18T12:04:09.761651",
+                "ruta": ".cowfs/versiones/pachi_v1.txt",
+                "padre": null
+            },
+            "v2": {
+                "id": "v2",
+                "usuario": "male",
+                "fecha": "2025-03-18T12:04:12.530780",
+                "ruta": ".cowfs/versiones/pachi_v2.txt",
+                "padre": null
+            }
+        },
+        "ultima_version": "v2"
+    },
+    "luih": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T12:13:47.717006",
+        "ruta": ".cowfs/archivos/luih",
+        "versiones": {
+            "v1": {
+                "id": "v1",
+                "usuario": "male",
+                "fecha": "2025-03-18T12:13:51.963912",
+                "ruta": ".cowfs/versiones/luih_v1.txt",
+                "padre": "archivo_original"
+            },
+            "v2": {
+                "id": "v2",
+                "usuario": "male",
+                "fecha": "2025-03-18T12:13:53.540803",
+                "ruta": ".cowfs/versiones/luih_v2.txt",
+                "padre": "v1"
+            },
+            "v3": {
+                "id": "v3",
+                "usuario": "male",
+                "fecha": "2025-03-18T12:13:55.356582",
+                "ruta": ".cowfs/versiones/luih_v3.txt",
+                "padre": "v2"
+            }
+        },
+        "ultima_version": "v3"
+    },
+    "l": {
+        "usuario_creador": "male",
+        "fecha_creacion": "2025-03-18T14:15:13.813228",
+        "ruta": ".cowfs/archivos/l",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "o": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-18T14:16:12.509244",
+        "ruta": ".cowfs/archivos/o",
+        "versiones": {
+            "v1": {
+                "id": "v1",
+                "usuario": "luis",
+                "fecha": "2025-03-18T14:16:25.850413",
+                "ruta": ".cowfs/versiones/o_v1.txt",
+                "padre": "archivo_original"
+            },
+            "v2": {
+                "id": "v2",
+                "usuario": "luis",
+                "fecha": "2025-03-18T14:16:28.041471",
+                "ruta": ".cowfs/versiones/o_v2.txt",
+                "padre": "v1"
+            }
+        },
+        "ultima_version": "v2"
+    }
+}
