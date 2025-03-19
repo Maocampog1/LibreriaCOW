@@ -25,7 +25,7 @@ def registrar_usuario(nombre):
                 usuarios = {}
 
             if nombre in usuarios:
-                print(f"⚠️ El usuario '{nombre}' ya existe.")
+                print(f" El usuario '{nombre}' ya existe.")
                 return
 
             usuarios[nombre] = {"archivos": []}

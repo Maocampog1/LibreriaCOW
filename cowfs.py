@@ -2,7 +2,7 @@ import sys
 from commands import ejecutar_comando
 
 if len(sys.argv) < 2:
-    print("⚠️ Debes proporcionar un comando.")
+    print(" Debes proporcionar un comando.")
     sys.exit(1)
 
 comando = sys.argv[1]
