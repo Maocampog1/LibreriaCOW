@@ -15,7 +15,13 @@
     "luis": {
         "archivos": [
             "pau",
-            "o"
+            "o",
+            "p9.txt",
+            "9.txt",
+            "89.txt",
+            "8w9.txt",
+            "loca.txt",
+            "loca2.txt"
         ]
     },
     "buenas": {
@@ -25,9 +31,6 @@
         "archivos": []
     },
     "usuario1": {
-        "archivos": []
-    },
-    "tarrito": {
         "archivos": []
     }
 }
