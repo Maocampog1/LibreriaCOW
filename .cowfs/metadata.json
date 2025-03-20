@@ -250,18 +250,98 @@
         },
         "ultima_version": "v2"
     },
-    "puchis.txt": {
+    "p9.txt": {
         "usuario_creador": "luis",
-        "fecha_creacion": "2025-03-19T04:39:37.979525",
-        "ruta": ".cowfs/archivos/puchis.txt",
+        "fecha_creacion": "2025-03-20T12:51:16.311466",
+        "ruta": ".cowfs/archivos/p9.txt",
         "versiones": {},
         "ultima_version": null
     },
-    "puchi1s.txt": {
+    "9.txt": {
         "usuario_creador": "luis",
-        "fecha_creacion": "2025-03-19T04:52:29.149416",
-        "ruta": ".cowfs/archivos/puchi1s.txt",
+        "fecha_creacion": "2025-03-20T14:00:45.161316",
+        "ruta": ".cowfs/archivos/9.txt",
         "versiones": {},
         "ultima_version": null
+    },
+    "89.txt": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-20T14:10:00.846357",
+        "ruta": ".cowfs/archivos/89.txt",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "8w9.txt": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-20T14:10:24.963485",
+        "ruta": ".cowfs/archivos/8w9.txt",
+        "versiones": {
+            "v1": {
+                "id": "v1",
+                "usuario": "luis",
+                "fecha": "2025-03-20T14:10:29.009772",
+                "ruta": ".cowfs/versiones/8w9.txt_v1.txt",
+                "padre": "archivo_original"
+            },
+            "v2": {
+                "id": "v2",
+                "usuario": "luis",
+                "fecha": "2025-03-20T14:12:16.033967",
+                "ruta": ".cowfs/versiones/8w9.txt_v2.txt",
+                "padre": "v1"
+            },
+            "v3": {
+                "id": "v3",
+                "usuario": "luis",
+                "fecha": "2025-03-20T14:12:59.165687",
+                "ruta": ".cowfs/versiones/8w9.txt_v3.txt",
+                "padre": "v2"
+            },
+            "v4": {
+                "id": "v4",
+                "usuario": "luis",
+                "fecha": "2025-03-20T14:17:13.827873",
+                "ruta": ".cowfs/versiones/8w9.txt_v4.txt",
+                "padre": "v3"
+            }
+        },
+        "ultima_version": "v4"
+    },
+    "loca.txt": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-20T14:17:49.691139",
+        "ruta": ".cowfs/archivos/loca.txt",
+        "versiones": {
+            "v1": {
+                "id": "v1",
+                "usuario": "luis",
+                "fecha": "2025-03-20T14:17:57.696976",
+                "ruta": ".cowfs/versiones/loca.txt_v1.txt",
+                "padre": "archivo_original"
+            }
+        },
+        "ultima_version": "v1"
+    },
+    "loca2.txt": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-20T14:21:48.634720",
+        "ruta": ".cowfs/archivos/loca2.txt",
+        "versiones": {
+            "v1": {
+                "id": "v1",
+                "usuario": "luis",
+                "fecha": "2025-03-20T14:21:54.003723",
+                "ruta": ".cowfs/versiones/loca2.txt_v1.txt",
+                "padre": "archivo_original"
+            },
+            "v2": {
+                "id": "v2",
+                "usuario": "luis",
+                "fecha": "2025-03-20T14:22:20.961502",
+                "ruta": ".cowfs/versiones/loca2.txt_v2.txt",
+                "padre": "v1"
+            }
+        },
+        "ultima_version": "v2"
     }
 }

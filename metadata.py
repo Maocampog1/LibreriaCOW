@@ -151,7 +151,7 @@ def listar_versiones(nombre):
         padre = datos["padre"] if datos["padre"] else "None"
         print(f"- {id_version} (Creado por: {datos['usuario']}, Padre: {padre})")
 
-
+# ...existing code...
 
 def crear_rama(nombre, id_version_base, usuario):
     """Crea una nueva rama a partir de una versión existente."""
