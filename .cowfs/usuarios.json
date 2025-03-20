@@ -15,7 +15,9 @@
     "luis": {
         "archivos": [
             "pau",
-            "o"
+            "o",
+            "puchis.txt",
+            "puchi1s.txt"
         ]
     },
     "buenas": {
@@ -25,9 +27,6 @@
         "archivos": []
     },
     "usuario1": {
-        "archivos": []
-    },
-    "tarrito": {
         "archivos": []
     }
 }

@@ -249,5 +249,19 @@
             }
         },
         "ultima_version": "v2"
+    },
+    "puchis.txt": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-19T04:39:37.979525",
+        "ruta": ".cowfs/archivos/puchis.txt",
+        "versiones": {},
+        "ultima_version": null
+    },
+    "puchi1s.txt": {
+        "usuario_creador": "luis",
+        "fecha_creacion": "2025-03-19T04:52:29.149416",
+        "ruta": ".cowfs/archivos/puchi1s.txt",
+        "versiones": {},
+        "ultima_version": null
     }
 }

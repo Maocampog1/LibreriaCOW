@@ -40,7 +40,7 @@ def cargar_metadata():
             contenido = f.read().strip()
             return json.loads(contenido) if contenido else {}
     except json.JSONDecodeError:
-        print("Error: Metadata corrupta, se usará un archivo vacío.")
+        print("⚠️ Error: Metadata corrupta, se usará un archivo vacío.")
         return {}
 
 def guardar_metadata(metadata):
@@ -57,11 +57,11 @@ def registrar_archivo(nombre, usuario):
     ruta = os.path.join(ARCHIVOS_DIR, nombre)
 
     if not os.path.exists(ruta):
-        print(f"El archivo '{nombre}' no existe en {ARCHIVOS_DIR}. Debes crearlo antes.")
+        print(f"⚠️ El archivo '{nombre}' no existe en {ARCHIVOS_DIR}. Debes crearlo antes.")
         return
 
     if nombre in metadata:
-        print(f" El archivo '{nombre}' ya está registrado.")
+        print(f"⚠️ El archivo '{nombre}' ya está registrado.")
         return
 
     # Registrar el archivo en metadata
@@ -80,19 +80,19 @@ def registrar_archivo(nombre, usuario):
     usuarios[usuario]["archivos"].append(nombre)
     guardar_usuarios(usuarios)
 
-    print(f" Archivo '{nombre}' registrado por {usuario}.")
+    print(f"✅ Archivo '{nombre}' registrado por {usuario}.")
     
 
 def guardar_version(nombre, usuario, padre=None):
     """Guarda una nueva versión del archivo."""
     metadata = cargar_metadata()
     if nombre not in metadata:
-        print(f"El archivo '{nombre}' no está registrado.")
+        print(f"⚠️ El archivo '{nombre}' no está registrado.")
         return
 
     ruta_original = metadata[nombre]["ruta"]
     if not os.path.exists(ruta_original):
-        print(f" No se encontró el archivo original '{nombre}'.")
+        print(f"⚠️ No se encontró el archivo original '{nombre}'.")
         return
 
     # Generar un identificador único para la nueva versión
@@ -119,18 +119,18 @@ def guardar_version(nombre, usuario, padre=None):
         }
         metadata[nombre]["ultima_version"] = id_version  # Actualizar la última versión
         guardar_metadata(metadata)
-        print(f"Versión {id_version} de '{nombre}' guardada.")
+        print(f"✅ Versión {id_version} de '{nombre}' guardada.")
     except Exception as e:
-        print(f"Error al guardar la versión: {e}")
+        print(f"⚠️ Error al guardar la versión: {e}")
 
 def listar_archivos():
     """Lista los archivos registrados en el sistema."""
     metadata = cargar_metadata()
     if not metadata:
-        print(" No hay archivos registrados.")
+        print("📂 No hay archivos registrados.")
         return
 
-    print("Archivos registrados:")
+    print("📄 Archivos registrados:")
     for archivo, datos in metadata.items():
         print(f"- {archivo} (Creado por: {datos['usuario_creador']})")
 
@@ -138,30 +138,30 @@ def listar_versiones(nombre):
     """Lista las versiones de un archivo y sus relaciones."""
     metadata = cargar_metadata()
     if nombre not in metadata:
-        print(f"El archivo '{nombre}' no está registrado.")
+        print(f"⚠️ El archivo '{nombre}' no está registrado.")
         return
 
     versiones = metadata[nombre]["versiones"]
     if not versiones:
-        print(f"No hay versiones registradas para '{nombre}'.")
+        print(f"📂 No hay versiones registradas para '{nombre}'.")
         return
 
-    print(f"Versiones de '{nombre}':")
+    print(f"📄 Versiones de '{nombre}':")
     for id_version, datos in versiones.items():
         padre = datos["padre"] if datos["padre"] else "None"
         print(f"- {id_version} (Creado por: {datos['usuario']}, Padre: {padre})")
 
-# ...existing code...
+
 
 def crear_rama(nombre, id_version_base, usuario):
     """Crea una nueva rama a partir de una versión existente."""
     metadata = cargar_metadata()
     if nombre not in metadata:
-        print(f" El archivo '{nombre}' no está registrado.")
+        print(f"⚠️ El archivo '{nombre}' no está registrado.")
         return
 
     if id_version_base not in metadata[nombre]["versiones"]:
-        print(f" La versión base '{id_version_base}' no existe.")
+        print(f"⚠️ La versión base '{id_version_base}' no existe.")
         return
 
     nueva_rama = f"{id_version_base}_branch"
@@ -173,4 +173,4 @@ def crear_rama(nombre, id_version_base, usuario):
         "padre": id_version_base
     }
     guardar_metadata(metadata)
-    print(f" Nueva rama '{nueva_rama}' creada a partir de '{id_version_base}'.")
+    print(f"✅ Nueva rama '{nueva_rama}' creada a partir de '{id_version_base}'.")
