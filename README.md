@@ -223,3 +223,5 @@ Ejecución:
 ```cpp
 ./cow
 ```
+## Conclusión
+Este sistema permite una gestión avanzada de archivos con control de versiones, escritura segura, y soporte para múltiples usuarios. Gracias a la estrategia Copy-on-Write, se optimiza el uso del almacenamiento y se garantiza la integridad de los datos.
