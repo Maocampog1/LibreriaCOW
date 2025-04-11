@@ -236,7 +236,7 @@ return 0;
 g++ -std=c++17 -o cowfs main.cpp CoW.cpp cow_filesystem.cpp file_handler.cpp metadata_manager.cpp storage_manager.cpp version_manager.cpp -I.
 ```
 **Ejecución:**
-- Ejecuta el binario generado
+- Ejecuta.
 ```cpp
 ./cow
 ```
