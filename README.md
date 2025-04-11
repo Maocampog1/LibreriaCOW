@@ -28,7 +28,7 @@ El sistema implementa muchas validaciones para evitar errores comunes como inten
 
 ## Estructuras Principales
 
-### 1. FileVersion 
+### FileVersion 
 Representa una versión de un archivo.
 
 ```cpp
@@ -42,7 +42,7 @@ struct FileVersion {
 };
 ```
 
-### 2. Inodo
+### Inodo
 Representa la metadata básica de un archivo.
 
 ```cpp
@@ -59,27 +59,27 @@ struct Inode {
 
 ```
 
-### 3. MetadataManager
+### MetadataManager
 Gestiona la metadata de los archivos, incluyendo:
 - Las versiones de cada archivo
 - Los bloques libres disponibles
 - La información de estructura del sistema de archivos
 
-### 4. StorageManager
+### StorageManager
 Responsable de:
 - La lectura de bloques del almacenamiento físico
 - La escritura de bloques en el almacenamiento físico  
 - La gestión del espacio en disco
 - La asignación y liberación de bloques
 
-### 5. FileHandler
+### FileHandler
 Funciona como interfaz entre el usuario y el sistema, permitiendo:
 - Operaciones de lectura de archivos
 - Operaciones de escritura de archivos
 - Cierre seguro de archivos
 - Gestión de permisos y acceso concurrente
 
-### 6. CoWFileSystem
+### CoWFileSystem
 Componente central que:
 - Coordina todas las operaciones del sistema
 - Implementa la lógica Copy-on-Write
@@ -90,7 +90,7 @@ Componente central que:
 
 ## Funciones Clave
 
-### 1. CoWFileSystem::create
+### CoWFileSystem::create
 Crea un nuevo archivo en el sistema:
 ```cpp
 void CoWFileSystem::create(const std::string& filename, const std::string& author);
@@ -100,7 +100,7 @@ void CoWFileSystem::create(const std::string& filename, const std::string& autho
 - Asigna bloques libres para el archivo.
 - Registra la primera versión del archivo en los metadatos.
 
-### 2. CoWFileSystem::open
+### CoWFileSystem::open
 Abre un archivo para un usuario específico.
 ```cpp
 std::shared_ptr<FileHandler> CoWFileSystem::open(const std::string& filename, const std::string& author);
@@ -109,7 +109,7 @@ std::shared_ptr<FileHandler> CoWFileSystem::open(const std::string& filename, co
 - Verifica si el archivo existe.
 - Crea un FileHandler para gestionar las operaciones del archivo.
 
-### 3. CoWFileSystem::read
+### CoWFileSystem::read
 Lee el contenido acumulado de todas las versiones de un archivo.
 ```cpp
 std::vector<uint8_t> CoWFileSystem::read(const std::string& filename, const std::string& author);
@@ -118,7 +118,7 @@ std::vector<uint8_t> CoWFileSystem::read(const std::string& filename, const std:
 - Recupera todas las versiones del archivo.
 - Junta los bloques de todas las versiones para devolver el contenido completo.
 
-### 4. CoWFileSystem::write
+### CoWFileSystem::write
 Escribe datos en un archivo, creando una nueva versión.
 ```cpp
 void CoWFileSystem::write(const std::string& filename, const std::vector<uint8_t>& data, const std::string& author);
@@ -128,7 +128,7 @@ void CoWFileSystem::write(const std::string& filename, const std::vector<uint8_t
 - Escribe los datos en nuevos bloques si es necesario.
 - Registra la nueva versión en los metadatos.
 
-### 5. CoWFileSystem::close
+### CoWFileSystem::close
 Cierra un archivo abierto.
 ```cpp
 void CoWFileSystem::close(const std::string& filename);
@@ -138,7 +138,7 @@ void CoWFileSystem::close(const std::string& filename);
 - Elimina el archivo del mapa de archivos abiertos.
 
 
-### 6. MetadataManager::get_all_versions
+### MetadataManager::get_all_versions
 Obtiene todas las versiones de un archivo.
 ```cpp
 std::vector<FileVersion> MetadataManager::get_all_versions(const std::string& filename) const;
@@ -151,21 +151,21 @@ std::vector<FileVersion> MetadataManager::get_all_versions(const std::string& fi
 
 ## Flujo de Ejecución
 
-### 1. Creación de un archivo
+### Creación de un archivo
 - **Acción del usuario**: Llama a `create()`
 - **Procesos del sistema**:
   - Asigna bloques libres para el nuevo archivo
   - Registra la primera versión en los metadatos
   - Establece los atributos iniciales (autor, timestamp)
 
-### 2. Apertura de un archivo
+### Apertura de un archivo
 - **Acción del usuario**: Llama a `open()`
 - **Procesos del sistema**:
   - Verifica permisos y existencia del archivo
   - Crea un objeto `FileHandler` para manejar las operaciones
   - Actualiza el estado del archivo a "abierto"
 
-### 3. Escritura en un archivo
+### Escritura en un archivo
 - **Acción del usuario**: Llama a `write()`
 - **Procesos del sistema**:
   - Verifica si los bloques actuales están compartidos (Copy-on-Write)
@@ -178,7 +178,7 @@ std::vector<FileVersion> MetadataManager::get_all_versions(const std::string& fi
     - Nueva marca de tiempo
     - Identificación del autor
 
-### 4. Lectura de un archivo
+### Lectura de un archivo
 - **Acción del usuario**: Llama a `read()`
 - **Procesos del sistema**:
   - Recupera todas las versiones disponibles
@@ -187,7 +187,7 @@ std::vector<FileVersion> MetadataManager::get_all_versions(const std::string& fi
     - Bloques modificados en versiones posteriores
   - Devuelve el contenido unificado al usuario
 
-### 5. Cierre de un archivo
+### Cierre de un archivo
 - **Acción del usuario**: Llama a `close()`
 - **Procesos del sistema**:
   - Libera el `FileHandler` asociado
@@ -202,18 +202,28 @@ El archivo ```main.cpp``` incluye pruebas que demuestran cómo interactuar con e
 
 **Ejemplo:**
 ```cpp
-CoW paula("Paula");
-paula.create("diario.txt");
-paula.open("diario.txt");
-paula.write("Querido diario, hoy fue un buen día.");
-paula.read(); // Lee: "Querido diario, hoy fue un buen día."
-paula.close();
+#include "CoW.h"
+#include <iostream>
 
-CoW carlos("Carlos");
-carlos.open("diario.txt");
-carlos.write("Carlos estuvo aquí también.");
-carlos.read(); // Lee: "Querido diario, hoy fue un buen día.Carlos estuvo aquí también."
-carlos.close();
+int main() {
+
+    CoWFileSystem fs;
+
+    CoW paula("Paula");
+    paula.create("diario.txt");
+    paula.open("diario.txt");
+    paula.write("Querido diario, hoy fue un buen día.");
+    paula.read(); // Lee: "Querido diario, hoy fue un buen día."
+    paula.close();
+    
+    CoW carlos("Carlos");
+    carlos.open("diario.txt");
+    carlos.write("Carlos estuvo aquí también.");
+    carlos.read(); // Lee: "Querido diario, hoy fue un buen día.Carlos estuvo aquí también."
+    carlos.close();
+
+return 0;
+}
 ```
 
 ---
