@@ -86,3 +86,140 @@ Componente central que:
 - Gestiona la concurrencia y consistencia
 - Proporciona la API pública del sistema de archivos
 
+## Funciones Clave
+
+### 1. CoWFileSystem::create
+Crea un nuevo archivo en el sistema:
+```cpp
+void CoWFileSystem::create(const std::string& filename, const std::string& author);
+```
+Flujo:
+- Verifica si el archivo ya existe.
+- Asigna bloques libres para el archivo.
+- Registra la primera versión del archivo en los metadatos.
+
+### 2. CoWFileSystem::open
+Abre un archivo para un usuario específico.
+```cpp
+std::shared_ptr<FileHandler> CoWFileSystem::open(const std::string& filename, const std::string& author);
+```
+Flujo:
+- Verifica si el archivo existe.
+- Crea un FileHandler para gestionar las operaciones del archivo.
+
+### 3. CoWFileSystem::read
+Lee el contenido acumulado de todas las versiones de un archivo.
+```cpp
+std::vector<uint8_t> CoWFileSystem::read(const std::string& filename, const std::string& author);
+```
+Flujo:
+- Recupera todas las versiones del archivo.
+- Junta los bloques de todas las versiones para devolver el contenido completo.
+
+### 4. CoWFileSystem::write
+Escribe datos en un archivo, creando una nueva versión.
+```cpp
+void CoWFileSystem::write(const std::string& filename, const std::vector<uint8_t>& data, const std::string& author);
+```
+Flujo:
+- Realiza una operación Copy-on-Write si los bloques actuales están compartidos.
+- Escribe los datos en nuevos bloques si es necesario.
+- Registra la nueva versión en los metadatos.
+
+### 5. CoWFileSystem::close
+Cierra un archivo abierto.
+```cpp
+void CoWFileSystem::close(const std::string& filename);
+```
+Flujo:
+- Marca el archivo como cerrado en el FileHandler.
+- Elimina el archivo del mapa de archivos abiertos.
+
+
+### 6. MetadataManager::get_all_versions
+Obtiene todas las versiones de un archivo.
+```cpp
+std::vector<FileVersion> MetadataManager::get_all_versions(const std::string& filename) const;
+```
+Flujo:
+- Busca el archivo en los metadatos.
+- Devuelve una lista de todas las versiones registradas.
+
+
+## Flujo de Ejecución
+
+### 1. Creación de un archivo
+- **Acción del usuario**: Llama a `create()`
+- **Procesos del sistema**:
+  - Asigna bloques libres para el nuevo archivo
+  - Registra la primera versión en los metadatos
+  - Establece los atributos iniciales (autor, timestamp)
+
+### 2. Apertura de un archivo
+- **Acción del usuario**: Llama a `open()`
+- **Procesos del sistema**:
+  - Verifica permisos y existencia del archivo
+  - Crea un objeto `FileHandler` para manejar las operaciones
+  - Actualiza el estado del archivo a "abierto"
+
+### 3. Escritura en un archivo
+- **Acción del usuario**: Llama a `write()`
+- **Procesos del sistema**:
+  - Verifica si los bloques actuales están compartidos (Copy-on-Write)
+  - Si es necesario:
+    - Asigna nuevos bloques
+    - Copia los datos existentes
+  - Escribe los nuevos datos
+  - Registra una nueva versión con:
+    - Referencia a los bloques modificados
+    - Nueva marca de tiempo
+    - Identificación del autor
+
+### 4. Lectura de un archivo
+- **Acción del usuario**: Llama a `read()`
+- **Procesos del sistema**:
+  - Recupera todas las versiones disponibles
+  - Reconstruye el contenido completo concatenando:
+    - Bloques de la versión original
+    - Bloques modificados en versiones posteriores
+  - Devuelve el contenido unificado al usuario
+
+### 5. Cierre de un archivo
+- **Acción del usuario**: Llama a `close()`
+- **Procesos del sistema**:
+  - Libera el `FileHandler` asociado
+  - Actualiza el estado del archivo a "cerrado"
+  - Elimina la entrada del mapa de archivos abiertos
+  - Persiste cualquier cambio pendiente en disco
+
+## Pruebas y Ejemplo de Uso
+El archivo main.cpp incluye pruebas que demuestran cómo interactuar con el sistema.
+Ejemplo:
+```cpp
+CoW paula("Paula");
+paula.create("diario.txt");
+paula.open("diario.txt");
+paula.write("Querido diario, hoy fue un buen día.");
+paula.read(); // Lee: "Querido diario, hoy fue un buen día."
+paula.close();
+
+CoW carlos("Carlos");
+carlos.open("diario.txt");
+carlos.write("Carlos estuvo aquí también.");
+carlos.read(); // Lee: "Querido diario, hoy fue un buen día.Carlos estuvo aquí también."
+carlos.close();
+```
+
+
+## Cómo Ejecutar el Código
+Compilación:
+- Usa un compilador compatible con C++17 o superior.
+- Comando de compilación (ejemplo con g++):
+```cpp
+g++ -std=c++17 -o cowfs main.cpp CoW.cpp cow_filesystem.cpp file_handler.cpp metadata_manager.cpp storage_manager.cpp version_manager.cpp -I.
+```
+Ejecución:
+•	Ejecuta el binario generado
+```cpp
+./cow
+```
