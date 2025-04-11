@@ -180,4 +180,12 @@ cow_fs/
 
 ### Gestión de Memoria
 - El sistema permite asignar y liberar bloques de memoria para cada archivo, lo que facilita la gestión de recursos.
+---
+### Conclusiones:
+- La implementación en C++ permitió simular eficazmente un sistema de archivos interno utilizando un archivo binario (storage.bin) como espacio de almacenamiento. Esta simulación refleja cómo los sistemas operativos reales administran datos en discos físicos, reforzando conceptos vistos en clase.
+  
+- El sistema aplica el principio de Copy-on-Write mediante la creación de nuevas versiones que reutilizan los bloques no modificados y solo escriben nuevos bloques para los cambios. Esto permite mantener un historial completo de versiones sin sobrescribir datos anteriores.
+  
+- Este proyecto nos ayudó a comprender más en detalle cómo funciona un sistema de archivos, permitiéndonos analizar no solo su estructura básica, sino también los procesos internos relacionados con la gestión del almacenamiento y la manera en que se organizan y recuperan los datos. 
+
 
